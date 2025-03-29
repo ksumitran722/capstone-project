@@ -7,6 +7,8 @@ public class Game extends PApplet{
     PImage photo;
 
     Server game = new Server();
+    Button test;
+
 
     public void settings()
     {
@@ -15,15 +17,14 @@ public class Game extends PApplet{
 
     public void setup()
     {
-        photo = loadImage("ludwig.jpg");
-        photo.resize(400,400);
-        game.run();
+        test = new Button(width/2, height/2+75, 200, 75, 28);
 
     }
 
     public void draw()
     {
-        image(photo, width/4, height/4);
+        rectMode(CENTER);
+        test.draw(this);
     }
 
     public static void main (String[] args)
