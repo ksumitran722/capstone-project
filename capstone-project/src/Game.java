@@ -6,7 +6,6 @@ public class Game extends PApplet{
 
     PImage photo;
 
-    Server game = new Server();
     Button test;
 
 
