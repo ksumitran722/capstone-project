@@ -2,20 +2,15 @@ import processing.core.PApplet;
 
 import java.awt.*;
 
-public class Button {
+public class Button extends Clickable{
 
 
-    float rectX, rectY, width, height, contour;
 
 
 
     public Button(float rectX, float rectY, float width, float height, float contour)
     {
-        this.rectX = rectX;
-        this.rectY = rectY;
-        this.width = width;
-        this.height = height;
-        this.contour = contour;
+        super(rectX,rectY,width,height,contour);
     }
 
     public void draw(PApplet marker)
@@ -29,19 +24,14 @@ public class Button {
         else{
             marker.fill(Color.white.getRGB());
         }
-        marker.rect(rectX, rectY, width, height, contour);
+        marker.rect(getRectX(), getRectY(), getWidth(), getHeight(), getContour());
         marker.popMatrix();
     }
 
     public int checkMouseLocation(PApplet marker)
     {
-        boolean isHighlighted = false;
-
-        if(marker.mouseX > rectX - width/2 && marker.mouseX < rectX + width/2
-        && marker.mouseY > rectY - height/2 && marker.mouseY < rectY + height/2)
-        {
-            isHighlighted = true;
-        }
+        boolean isHighlighted = marker.mouseX > getRectX() - getWidth() / 2 && marker.mouseX < getRectX() + getWidth() / 2
+                && marker.mouseY > getRectY() - getHeight() / 2 && marker.mouseY < getRectY() + getHeight() / 2;
 
         if(isHighlighted)
         {
@@ -51,7 +41,6 @@ public class Button {
         }
 
     }
-
 
 
 
